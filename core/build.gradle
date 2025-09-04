@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'ru.freemasters.ceroba.core'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Speech to text. Do not shade it in core!
+    // Shade it manually in the application (desktop or android)
+    // https://mvnrepository.com/artifact/com.alphacephei/vosk
+    implementation 'com.alphacephei:vosk:0.3.45'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
